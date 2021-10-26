@@ -6,7 +6,7 @@ endif
 
 UBI_IMAGE ?= centos:7
 GOLANG_VERSION ?= v1.16.7b7-multiarch
-KUBE_PROXY_VERSION ?= v1.21.4-multiarch-build20210908
+K3S_ROOT_VERSION ?= v0.9.1
 BUILD_META ?= -multiarch-build$(shell date +%Y%m%d)
 ORG ?= rancher
 PKG ?= github.com/kubernetes/dns
@@ -24,11 +24,11 @@ endif
 .PHONY: image-build
 image-build:
 	docker build \
-		--pull \
+                --build-arg ARCH=$(ARCH) \
 		--build-arg PKG=$(PKG) \
 		--build-arg SRC=$(SRC) \
 		--build-arg TAG=$(TAG:$(BUILD_META)=) \
-                --build-arg KUBE_PROXY_IMAGE=$(ORG)/hardened-kube-proxy:$(KUBE_PROXY_VERSION) \
+                --build-arg K3S_ROOT_VERSION=$(K3S_ROOT_VERSION) \
                 --build-arg GO_IMAGE=$(ORG)/hardened-build-base:$(GOLANG_VERSION) \
                 --build-arg UBI_IMAGE=$(UBI_IMAGE) \
 		--tag $(ORG)/hardened-dns-node-cache:$(TAG) \
