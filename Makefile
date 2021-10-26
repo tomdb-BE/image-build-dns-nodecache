@@ -28,7 +28,7 @@ image-build:
 		--build-arg PKG=$(PKG) \
 		--build-arg SRC=$(SRC) \
 		--build-arg TAG=$(TAG:$(BUILD_META)=) \
-                --build-arg KUBE_PROXY_IMAGE = $(ORG)/hardened-kube-proxy:$(KUBE_PROXY_VERSION)
+                --build-arg KUBE_PROXY_IMAGE=$(ORG)/hardened-kube-proxy:$(KUBE_PROXY_VERSION) \
                 --build-arg GO_IMAGE=$(ORG)/hardened-build-base:$(GOLANG_VERSION) \
                 --build-arg UBI_IMAGE=$(UBI_IMAGE) \
 		--tag $(ORG)/hardened-dns-node-cache:$(TAG) \
