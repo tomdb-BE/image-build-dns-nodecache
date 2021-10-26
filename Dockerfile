@@ -10,7 +10,8 @@ RUN set -x \
     file \
     gcc \
     git \
-    make
+    make \
+    tar
 
 # setup the dnsNodeCache build
 FROM base-builder as dnsNodeCache-builder
