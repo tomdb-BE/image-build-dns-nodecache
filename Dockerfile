@@ -1,7 +1,7 @@
-ARG UBI_IMAGE=registry.access.redhat.com/ubi7/ubi-minimal:latest
-ARG GO_IMAGE=rancher/hardened-build-base:v1.16.7b7
+ARG UBI_IMAGE
+ARG GO_IMAGE
 # We need iptables and ip6tables. We will get them from the hardened kube-proxy image
-ARG KUBE_PROXY_IMAGE=rancher/hardened-kube-proxy:v1.21.3-build20210716
+ARG KUBE_PROXY_IMAGE
 
 ARG TAG="1.19.1"
 ARG ARCH="amd64"
@@ -34,8 +34,7 @@ RUN go-assert-boring.sh node-cache
 RUN install -s node-cache /usr/local/bin
 
 FROM ubi as dnsNodeCache
-RUN microdnf update -y && \
-    microdnf install nc which && \
+RUN yum install nc which && \
     rm -rf /var/cache/yum
 COPY --from=dnsNodeCache-builder /usr/local/bin/node-cache /node-cache
 COPY --from=kube-proxy /usr/sbin/ip* /usr/sbin/
