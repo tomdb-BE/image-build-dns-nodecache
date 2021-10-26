@@ -34,7 +34,7 @@ RUN go-assert-boring.sh node-cache
 RUN install -s node-cache /usr/local/bin
 
 FROM ubi as dnsNodeCache
-RUN yum install nc which && \
+RUN yum install -y nc which && \
     rm -rf /var/cache/yum
 COPY --from=dnsNodeCache-builder /usr/local/bin/node-cache /node-cache
 COPY --from=kube-proxy /usr/sbin/ip* /usr/sbin/
