@@ -7,7 +7,7 @@ endif
 UBI_IMAGE ?= registry.access.redhat.com/ubi8/ubi-minimal:latest
 GOLANG_VERSION ?= v1.16.10b7-multiarch
 BUILD_META ?= -multiarch-build$(shell date +%Y%m%d)
-KUBERNETES_VERSION ?= v1.22.4-rke2r1-build20211123
+KUBERNETES_VERSION ?= v1.22.4-rke2r1-multiarch-build20211123
 ORG ?= rancher
 PKG ?= github.com/kubernetes/dns
 SRC ?= github.com/kubernetes/dns
