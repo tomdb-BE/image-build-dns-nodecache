@@ -5,13 +5,13 @@ ARCH=$(shell go env GOARCH)
 endif
 
 UBI_IMAGE ?= registry.access.redhat.com/ubi8/ubi-minimal:latest
-GOLANG_VERSION ?= v1.17.5b7-multiarch
+GOLANG_VERSION ?= v1.17.6b7-multiarch
 BUILD_META ?= -multiarch-build$(shell date +%Y%m%d)
-KUBERNETES_VERSION ?= v1.23.1-rke2r1-multiarch-build20211230
+KUBERNETES_VERSION ?= v1.23.3-rke2r1-multiarch-build20220201
 ORG ?= rancher
 PKG ?= github.com/kubernetes/dns
 SRC ?= github.com/kubernetes/dns
-TAG ?= 1.21.2$(BUILD_META)
+TAG ?= 1.21.4$(BUILD_META)
 
 ifneq ($(DRONE_TAG),)
 TAG := $(DRONE_TAG)
