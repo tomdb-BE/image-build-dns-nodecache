@@ -11,7 +11,7 @@ KUBERNETES_VERSION ?= v1.23.6-rke2r1-multiarch-build20220428
 ORG ?= rancher
 PKG ?= github.com/kubernetes/dns
 SRC ?= github.com/kubernetes/dns
-TAG ?= 1.22.4$(BUILD_META)
+TAG ?= 1.22.1$(BUILD_META)
 
 ifneq ($(DRONE_TAG),)
 TAG := $(DRONE_TAG)
