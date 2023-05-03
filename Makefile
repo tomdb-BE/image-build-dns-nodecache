@@ -26,6 +26,7 @@ image-build:
 		--build-arg SRC=$(SRC) \
 		--build-arg ARCH=$(ARCH) \
 		--build-arg TAG=$(TAG:$(BUILD_META)=) \
+		--build-arg ORG=$(ORG) \
 		--tag $(ORG)/hardened-dns-node-cache:$(TAG) \
 		--tag $(ORG)/hardened-dns-node-cache:$(TAG)-$(ARCH) \
 	.

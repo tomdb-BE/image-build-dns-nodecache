@@ -1,7 +1,8 @@
+ARG ORG=rancher
 ARG BCI_IMAGE=registry.suse.com/bci/bci-base:latest
-ARG GO_IMAGE=rancher/hardened-build-base:v1.20.3b1
+ARG GO_IMAGE=${ORG}/hardened-build-base:v1.20.3b1
 # We need iptables and ip6tables. We will get them from the hardened kubernetes image
-ARG KUBERNETES=rancher/hardened-kubernetes:v1.26.3-rke2r1-build20230317
+ARG KUBERNETES=${ORG}/hardened-kubernetes:v1.27.1-rke2r1-build20230502
 
 ARG TAG="1.22.20"
 ARG ARCH="amd64"
